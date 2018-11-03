@@ -1,0 +1,20 @@
+.footer_subscription{
+	border: 0px;
+	border-radius: 0px;
+
+}
+.sharp-edges{
+
+	    border-radius: 0;
+	    background-color: #4682B4;
+
+}
+ul li:after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 75%;
+    margin: 5px;
+    background: #6c757d !important;
+}
+
