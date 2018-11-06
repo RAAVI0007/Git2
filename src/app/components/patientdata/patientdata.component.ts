@@ -6,12 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patientdata.component.css']
 })
 export class PatientdataComponent {
-
   city = 'Hyderabad';
-  dob ='21-DEC-1994';
-  country='India';
+  dob = '21-DEC-1994';
+  country = 'India';
   items = ['Fever', 'Couge'];
-attachments = ['X-ray', 'Prescriptions'];
-
-
+  attachments = ['X-ray', 'Prescriptions'];
+  id = 'ravi.devireddy07' ;
 }

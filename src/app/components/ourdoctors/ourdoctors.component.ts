@@ -31,7 +31,7 @@ export class OurdoctorsComponent implements OnInit {
     {
       idNum: 'Doctor-3',
       details: '3333333',
-      imagepath: '/src/images/doc3.jpg'
+      imagepath: 'https://serving.photos.photobox.com/357543241517abeb3e07cb5dacc511cad38b1a8e5e8dcd24c45b3d7fdae422c80541acd0.jpg'
     }
 
 

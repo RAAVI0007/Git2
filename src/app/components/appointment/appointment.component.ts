@@ -73,7 +73,6 @@ export class AppointmentComponent implements OnInit {
   }
 
   onAddRow(rowVal) {
-    alert (rowVal.length);
     if (this.rows.indexOf(rowVal) === -1 || this.rows.length === 0) {
       this.rows.push(rowVal);
     } else {
@@ -88,7 +87,6 @@ export class AppointmentComponent implements OnInit {
   }
 
   onFormSubmit() {
-    alert('submitting form');
     console.log('Form Submiited..');
     this.dataSaved = false;
     const patientinfo = this.registerForm.value;

@@ -1,6 +1,8 @@
-import { Component, AfterViewInit , ViewChild, ElementRef, HostListener } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TomcatService } from './services/Tomcat/tomcat.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +17,10 @@ export class AppComponent {
   sticky = false;
   elementPosition: any;
 
-  images = ['/src/images/medics-1.png',
-    '/src/images/medics-2.png',
+  heightD = ['50%'];
+
+  images = ['https://serving.photos.photobox.com/34156944745394a28ce5b0df584c8ce84cf0eeb36cb368813a415fb0ad4b4ec8c698430b.jpg',
+    '/src/images/medics99.png',
     '/src/images/6.png', '/src/images/19.png',
     '/src/images/19.png',
     '/src/images/19.png'];
@@ -40,18 +44,18 @@ export class AppComponent {
   }*/
 
   // tslint:disable-next-line:use-life-cycle-interface
-  ngAfterViewInit() {
+  /*ngAfterViewInit() {
     this.elementPosition = this.menuElement.nativeElement.offsetTop;
-  }
+  }*/
 
   @HostListener('window:scroll', ['$event'])
-    handleScroll() {
-      const windowScroll = window.pageYOffset;
-      if (windowScroll >= this.elementPosition) {
-        this.sticky = true;
-      } else {
-        this.sticky = false;
-      }
-}
+  handleScroll() {
+    $(function () {
+      $(document).scroll(function () {
+        const $nav = $('.navbar-fixed-top');
+        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+      });
+    });
+  }
 
 }

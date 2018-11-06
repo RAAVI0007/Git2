@@ -20,6 +20,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserAnimationsModule,
     NgbModule,
     MatExpansionModule,
+    AngularFontAwesomeModule,
     MatFaqModule.forRoot()
   ],
   providers: [TomcatService],
