@@ -3,15 +3,17 @@ import { FormBuilder, FormGroup, Validators, FormControl, FormArray, NgForm } fr
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { PatientInfo } from './patientinfo';
 import { TomcatService } from '../../services/Tomcat/tomcat.service';
+
 @Component({
   selector: 'app-appointment',
   templateUrl: './appointment.component.html',
   styleUrls: ['./appointment.component.css']
 })
+
 export class AppointmentComponent implements OnInit {
-  public rows: { reason: string }[];
+  public rows: { reasons: string }[];
   isRowAdded = true;
-  constructor(private articleService: TomcatService, private formBuilder: FormBuilder, private http: HttpClient) {
+  constructor(private appointService: TomcatService, private formBuilder: FormBuilder, private http: HttpClient) {
     this.rows = [];
   }
   // convenience getter for easy access to form fields
@@ -27,26 +29,23 @@ export class AppointmentComponent implements OnInit {
   posts: any;
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      firstname: ['', Validators.required],
+      firstName: ['', Validators.required],
       lastname: ['', Validators.required],
       dob: ['', Validators.required],
       diagnosis: ['', Validators.required],
       phnum: ['', Validators.required],
       reasons: ['', Validators.required],
       problem: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      email: ['', [Validators.required, Validators.email]]
     });
   }
   onSubmit() {
+    alert('hello');
     this.submitted = true;
-    // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
     }
-    // Initialize Params Object
     let Params = new HttpParams();
-    // Begin assigning parameters
     Params = Params.append('firstParameter', this.registerForm.value.firstName);
     Params = Params.append('secondParameter', this.registerForm.value.lastName);
 
@@ -54,7 +53,6 @@ export class AppointmentComponent implements OnInit {
          this.posts = data;
          console.log(this.posts);
        });  */
-
 
     return this.http.post('http://localhost:8080/users/1', 'Hello', {
       headers: new HttpHeaders({
@@ -87,19 +85,23 @@ export class AppointmentComponent implements OnInit {
   }
 
   onFormSubmit() {
-    console.log('Form Submiited..');
+    alert('Form Submiited..' + this.registerForm.invalid);
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+      return;
+    }
+    alert('Form Submiited..');
     this.dataSaved = false;
     const patientinfo = this.registerForm.value;
-    console.log('firstName===' + patientinfo.firstname);
+    console.log('firstName===' + patientinfo.firstName);
     console.log('lastname=' + patientinfo.lastname);
     console.log('email=' + patientinfo.email);
     console.log('phnum=' + patientinfo.phnum);
-    console.log('reason=' + patientinfo.reason);
+    console.log('reason=' + patientinfo.reasons);
     console.log('DOB=' + patientinfo.dob);
     console.log('Diagnosis=' + patientinfo.diagnosis);
 
-    // this.createArticle(patientinfo);
-    this.articleService.createArticle(patientinfo).subscribe(
+    this.appointService.saveAppointment(patientinfo).subscribe(
       article => {
         console.log(article);
         this.dataSaved = true;

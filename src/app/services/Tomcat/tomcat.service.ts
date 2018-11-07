@@ -21,17 +21,10 @@ export class TomcatService {
 
   }
 
-  createArticle(article: PatientInfo): Observable<PatientInfo> {
+  saveAppointment(article: PatientInfo): Observable<PatientInfo> {
     console.log('Inside the Serivce:::');
-    let httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-    let options = { headers: httpHeaders };
-    /*return this._httpclient.post<PatientInfo>(this.apiPostURL, article, options).subscribe((response) => {
-      this.gitdata = response;
-      console.log('data recieved' + JSON.stringify(response));
-    });*/
-
+    const httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+    const options = { headers: httpHeaders };
     return this._httpclient.post<PatientInfo>(this.apiPostURL, article, options) ;
-
-
   }
 }

@@ -16,11 +16,18 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { OurdoctorsComponent } from './components/ourdoctors/ourdoctors.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { TomcatService } from './services/Tomcat/tomcat.service';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AuthenticationService } from './services/Authentication/authentication.service';
+import { AlertService } from './services/Alert/alert.service';
+import { UserService } from './services/User/user.service';
+import { Interceptor } from './classes/inteceptor';
+import {TokenStorage} from './classes/token.storage';
 
 @NgModule({
   declarations: [
@@ -33,7 +40,9 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     GalleryComponent,
     OurdoctorsComponent,
     ContactusComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -47,7 +56,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     AngularFontAwesomeModule,
     MatFaqModule.forRoot()
   ],
-  providers: [TomcatService],
+  providers: [TomcatService, AuthenticationService, AlertService, UserService, TokenStorage],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

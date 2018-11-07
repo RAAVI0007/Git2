@@ -9,10 +9,10 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { OurdoctorsComponent } from './components/ourdoctors/ourdoctors.component';
 import { ContactusComponent } from './components/contactus/contactus.component' ;
 import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
-
-  //{ path: 'home', component: AppComponent },
   { path: 'faqs', component: FaqsComponent },
   { path: 'patient', component: PatientdataComponent },
   { path: 'aboutus', component: AboutusComponent },
@@ -20,7 +20,9 @@ const routes: Routes = [
   { path: 'services', component: ServicesComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'ourdoctors', component: OurdoctorsComponent },
-  { path: 'contactus', component: ContactusComponent }
+  { path: 'contactus', component: ContactusComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
 
 ];
 
