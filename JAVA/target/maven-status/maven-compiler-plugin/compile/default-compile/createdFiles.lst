@@ -1,0 +1,6 @@
+com/myexpertmedics/beans/AddressPOJO.class
+com/myexpertmedics/controllers/DataController.class
+com/myexpertmedics/beans/UserPOJO.class
+com/myexpertmedics/MyExpertMedicsApplication.class
+com/myexpertmedics/repository/UserRepository.class
+com/myexpertmedics/restservices/UserRestService.class
