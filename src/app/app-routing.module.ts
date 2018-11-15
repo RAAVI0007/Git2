@@ -1,31 +1,47 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { PatientdataComponent } from './components/patientdata/patientdata.component';
-import { FaqsComponent } from './components/faqs/faqs.component';
-import { AboutusComponent } from './components/aboutus/aboutus.component' ;
-import { AppointmentComponent } from './components/appointment/appointment.component';
-import { ServicesComponent } from './components/services/services.component';
-import { GalleryComponent } from './components/gallery/gallery.component';
-import { OurdoctorsComponent } from './components/ourdoctors/ourdoctors.component';
-import { ContactusComponent } from './components/contactus/contactus.component' ;
-import { AppComponent } from './app.component';
+import { RouterModule, Routes } from '@angular/router';
+
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { UserComponent } from './user/user.component';
+import { PmComponent } from './pm/pm.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
-
-  //{ path: 'home', component: AppComponent },
-  { path: 'faqs', component: FaqsComponent },
-  { path: 'patient', component: PatientdataComponent },
-  { path: 'aboutus', component: AboutusComponent },
-  { path: 'appointment', component: AppointmentComponent },
-  { path: 'services', component: ServicesComponent },
-  { path: 'gallery', component: GalleryComponent },
-  { path: 'ourdoctors', component: OurdoctorsComponent },
-  { path: 'contactus', component: ContactusComponent }
-
+    {
+        path: 'home',
+        component: HomeComponent
+    },
+    {
+        path: 'user',
+        component: UserComponent
+    },
+    {
+        path: 'pm',
+        component: PmComponent
+    },
+    {
+        path: 'admin',
+        component: AdminComponent
+    },
+    {
+        path: 'auth/login',
+        component: LoginComponent
+    },
+    {
+        path: 'signup',
+        component: RegisterComponent
+    },
+    {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,53 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { PatientdataComponent } from './components/patientdata/patientdata.component';
-import { FaqsComponent } from './components/faqs/faqs.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AboutusComponent } from './components/aboutus/aboutus.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatFaqModule } from '@angular-material-extensions/faq';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppointmentComponent } from './components/appointment/appointment.component';
-import { ServicesComponent } from './components/services/services.component';
-import { GalleryComponent } from './components/gallery/gallery.component';
-import { OurdoctorsComponent } from './components/ourdoctors/ourdoctors.component';
-import { ContactusComponent } from './components/contactus/contactus.component';
-import { TomcatService } from './services/Tomcat/tomcat.service';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FooterComponent } from './components/footer/footer.component';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { AdminComponent } from './admin/admin.component';
+import { PmComponent } from './pm/pm.component';
+
+import { httpInterceptorProviders } from './auth/auth-interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PatientdataComponent,
-    FaqsComponent,
-    AboutusComponent,
-    AppointmentComponent,
-    ServicesComponent,
-    GalleryComponent,
-    OurdoctorsComponent,
-    ContactusComponent,
-    FooterComponent
+    LoginComponent,
+    UserComponent,
+    RegisterComponent,
+    HomeComponent,
+    AdminComponent,
+    PmComponent
   ],
   imports: [
-    ReactiveFormsModule,
-    FormsModule,
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    NgbModule,
-    MatExpansionModule,
-    AngularFontAwesomeModule,
-    MatFaqModule.forRoot()
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [TomcatService],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
